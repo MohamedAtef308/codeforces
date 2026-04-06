@@ -1,46 +1,24 @@
 #include <iostream>
-#include <vector>
 using std::cin;
 using std::cout;
-using std::string;
-using std::vector;
 
 int main()
 {
-    int n, ser = 0, dim = 0, curr;
-    cin >> n;
+    int changes = 0;
+    std::string str;
 
-    vector<int> h(n);
+    cin >> str;
+    cin >> str;
 
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < str.size() - 1; ++i)
     {
-        cin >> h[i];
-    }
-
-    int left = 0, right = n - 1;
-
-    for (int i = 0; i < n; ++i)
-    {
-        if (h[left] > h[right])
+        if (str[i] == str[i + 1])
         {
-            curr = h[left++];
-        }
-        else
-        {
-            curr = h[right--];
-        }
-
-        if (i % 2 == 0)
-        {
-            ser += curr;
-        }
-        else
-        {
-            dim += curr;
+            ++changes;
         }
     }
 
-    cout << ser << ' ' << dim;
+    cout << changes;
 
     return 0;
 }
